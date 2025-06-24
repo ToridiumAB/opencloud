@@ -8,7 +8,7 @@ services:
     command:
       - "--log.level=${TRAEFIK_LOG_LEVEL:-ERROR}"
       # load TLS certificates from files
-      - "--providers.file.directory=/certs"
+      - "--providers.file.directory=/run/secrets"
       - "--api.dashboard=true"
       # define entrypoints
       - "--entryPoints.http.address=:80"
@@ -33,9 +33,13 @@ services:
       - "443:443"
     volumes:
       - "${DOCKER_SOCKET_PATH:-/var/run/docker.sock}:/var/run/docker.sock:ro"
-      - "./certs/traefik.yml:/certs/traefik.yml:ro"
-      - "${TRAEFIK_CERT_FILE:-./certs/opencloud.crt}:/certs/opencloud.crt:ro"
-      - "${TRAEFIK_KEY_FILE:-./certs/opencloud.key}:/certs/opencloud.key:ro"
+    secrets:
+      - source: traefik_config
+        target: traefik.yml
+      - source: traefik_cert
+        target: opencloud.crt
+      - source: traefik_key
+        target: opencloud.key
     labels:
       - "traefik.enable=${TRAEFIK_DASHBOARD:-false}"
        # defaults to admin:admin
@@ -51,3 +55,11 @@ services:
 
 networks:
   opencloud-net:
+
+secrets:
+  traefik_config:
+    file: ./certs/traefik.yml
+  traefik_cert:
+    file: ${TRAEFIK_CERT_FILE:-./certs/opencloud.crt}
+  traefik_key:
+    file: ${TRAEFIK_KEY_FILE:-./certs/opencloud.key}

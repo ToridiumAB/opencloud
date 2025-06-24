@@ -1,4 +1,4 @@
 tls:
   certificates:
-    - certFile: /certs/opencloud.crt
-      keyFile: /certs/opencloud.key
+    - certFile: /run/secrets/opencloud.crt
+      keyFile: /run/secrets/opencloud.key
