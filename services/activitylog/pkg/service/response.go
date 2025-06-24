@@ -61,7 +61,7 @@ type Actor struct {
 	DisplayName string `json:"displayName"`
 }
 
-// Sharee represents a share reciever (group or user)
+// Sharee represents a share receiver (group or user)
 type Sharee struct {
 	ID          string `json:"id"`
 	DisplayName string `json:"displayName"`
