@@ -1,0 +1,4 @@
+tls:
+  certificates:
+    - certFile: /certs/opencloud.crt
+      keyFile: /certs/opencloud.key
