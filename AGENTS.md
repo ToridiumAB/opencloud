@@ -15,6 +15,8 @@ changes via an AI agent, please follow these rules:
 4. **Add a changelog entry**
    - If your change is user facing, create a file in `changelog/unreleased/`
      based on `changelog/TEMPLATE`.
+5. **Write a Conventional Commit message**
+   - Follow the [Conventional Commits](https://www.conventionalcommits.org/) specification for your commit messages.
 
 ## Pull request message
 
