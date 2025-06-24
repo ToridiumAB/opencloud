@@ -391,7 +391,7 @@ func TestDecodeErrors(t *testing.T) {
 	os.Clearenv()
 	err = Decode(&tcr)
 	if err == nil {
-		t.Fatal("An error was expected but recieved:", err)
+		t.Fatal("An error was expected but received:", err)
 	}
 
 	var tcns testConfigNoSet
