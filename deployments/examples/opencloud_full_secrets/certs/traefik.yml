@@ -1,4 +1,0 @@
-tls:
-  certificates:
-    - certFile: /run/secrets/opencloud.crt
-      keyFile: /run/secrets/opencloud.key
