@@ -10,6 +10,8 @@ This deployment example is documented in two locations for different audiences:
   Providing two variants using detailed configuration step by step guides:\
   [Docker Compose Setup](https://docs.opencloud.eu/docs/admin/getting-started/container/docker-compose) and [Docker Compose Local](https://docs.opencloud.eu/docs/admin/getting-started/container/docker-compose-local).\
   This variant uses certificates provided via Docker secrets.
+  The Traefik configuration file `certs/traefik.yml` is mounted as a volume and
+  loads the certificate and key from the secrets mounted in `/run/secrets`.
   Configure the paths using `TRAEFIK_CERT_FILE` and `TRAEFIK_KEY_FILE` in the `.env` file.
 
 * In the [Developer Documentation](https://docs.opencloud.eu/docs/dev/intro)\
